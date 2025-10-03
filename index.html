@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Calendar + Points -->
+    <aside class="calendar-section">
+      <h2>📅 Calendar</h2>
+      <input type="date" id="calendar" />
+      <div class="points-box">🎯 Points: <span id="points">0</span></div>
+      <button id="darkModeToggle" class="darkmode-btn">🌙 Dark Mode</button>
+    </aside>
+
+    <!-- Tasks -->
+    <main class="task-section">
+      <h1>To-Do List</h1>
+
+      <div class="task-input">
+        <input type="text" id="taskInput" placeholder="Add a new task..." />
+        <select id="category">
+          <option value="General">General</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Study">Study</option>
+        </select>
+        <select id="priority">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <button id="addTask">Add</button>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-container">
+        <div id="progress" class="progress-bar"></div>
+      </div>
+
+      <!-- Task list -->
+      <div id="taskList" class="task-list"></div>
+
+      <button id="toggleHistory" class="history-btn">Show Completed</button>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle">Task Title</h2>
+      <p id="modalDate"></p>
+      <p><strong>Category:</strong> <span id="modalCategory"></span></p>
+      <p><strong>Priority:</strong> <span id="modalPriority"></span></p>
+
+      <label>Edit Task:</label>
+      <input type="text" id="editTaskInput"/>
+
+      <div class="modal-actions">
+        <button id="completeTask">Mark Completed</button>
+        <button id="saveEdit">Save</button>
+        <button id="deleteTask" class="danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Completion Animation -->
+  <div id="animation" class="completion-animation">🎉 Task Completed!</div>
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

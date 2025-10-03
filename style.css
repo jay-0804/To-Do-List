@@ -1,0 +1,240 @@
+/* Reset & General */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f3f0; /* Nude background */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 95%;
+  max-width: 1100px;
+}
+
+/* Sidebar */
+.calendar-section {
+  background: #f0ebe7;
+  padding: 20px;
+  border-right: 2px solid #e5ded7;
+  text-align: center;
+}
+
+.calendar-section h2 {
+  margin-bottom: 15px;
+  color: #6b4f3f;
+}
+
+#calendar {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #c9b8a9;
+  background: #fff;
+}
+
+.points-box {
+  margin-top: 20px;
+  background: #e8dfd7;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #5b4032;
+}
+
+.darkmode-btn {
+  margin-top: 20px;
+  background: #6b4f3f;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.darkmode-btn:hover {
+  background: #4d362a;
+}
+
+/* Task Section */
+.task-section {
+  padding: 25px;
+}
+
+.task-section h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #5b4032;
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-input input, .task-input select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #c9b8a9;
+  background: #fff;
+}
+
+.task-input button {
+  background: #a67c52;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.task-input button:hover {
+  background: #8c6743;
+}
+
+/* Progress Bar */
+.progress-container {
+  background: #e8dfd7;
+  height: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 8px;
+  background: #a67c52;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Task Cards */
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px;
+}
+
+.task-card {
+  background: #fdfaf7;
+  border: 1px solid #e5ded7;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s;
+  cursor: pointer;
+}
+.task-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.task-card.completed {
+  background: #dce9dc;
+  text-decoration: line-through;
+  color: #555;
+}
+
+/* Completed Button */
+.history-btn {
+  margin-top: 20px;
+  background: #c9b8a9;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.history-btn:hover {
+  background: #a89b8d;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 14px;
+  width: 400px;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.modal-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+.modal-actions button {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+#completeTask { background: #a67c52; color: #fff; }
+#saveEdit { background: #6b4f3f; color: #fff; }
+.danger { background: #b94d4d; color: #fff; }
+
+/* Completion Animation */
+.completion-animation {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #a67c52;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  z-index: 200;
+}
+
+/* Confetti */
+#confettiCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #2d2a26;
+  color: #f0ebe7;
+}
+body.dark .container {
+  background: #3b3530;
+}
+body.dark .task-card {
+  background: #514a44;
+  color: #fff;
+}
+body.dark .task-card.completed {
+  background: #4a5a4a;
+}
