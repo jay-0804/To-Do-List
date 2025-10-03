@@ -1,78 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To-Do List</title>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jay Baid | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
 
-    <!-- Calendar + Points -->
-    <aside class="calendar-section">
-      <h2>📅 Calendar</h2>
-      <input type="date" id="calendar" />
-      <div class="points-box">🎯 Points: <span id="points">0</span></div>
-      <button id="darkModeToggle" class="darkmode-btn">🌙 Dark Mode</button>
-    </aside>
+<header id="header" class="header">
+  <div class="header-logo">JB</div>
+  <nav class="header-nav">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <button id="hamburger" class="hamburger">☰</button>
+</header>
 
-    <!-- Tasks -->
-    <main class="task-section">
-      <h1>To-Do List</h1>
+<div id="mobileMenu" class="mobile-menu">
+  <button id="closeMobile" class="close-mobile">✕</button>
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
 
-      <div class="task-input">
-        <input type="text" id="taskInput" placeholder="Add a new task..." />
-        <select id="category">
-          <option value="General">General</option>
-          <option value="Work">Work</option>
-          <option value="Personal">Personal</option>
-          <option value="Study">Study</option>
-        </select>
-        <select id="priority">
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-        <button id="addTask">Add</button>
-      </div>
+<main class="main">
 
-      <!-- Progress bar -->
-      <div class="progress-container">
-        <div id="progress" class="progress-bar"></div>
-      </div>
-
-      <!-- Task list -->
-      <div id="taskList" class="task-list"></div>
-
-      <button id="toggleHistory" class="history-btn">Show Completed</button>
-    </main>
-  </div>
-
-  <!-- Modal -->
-  <div id="taskModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="modalTitle">Task Title</h2>
-      <p id="modalDate"></p>
-      <p><strong>Category:</strong> <span id="modalCategory"></span></p>
-      <p><strong>Priority:</strong> <span id="modalPriority"></span></p>
-
-      <label>Edit Task:</label>
-      <input type="text" id="editTaskInput"/>
-
-      <div class="modal-actions">
-        <button id="completeTask">Mark Completed</button>
-        <button id="saveEdit">Save</button>
-        <button id="deleteTask" class="danger">Delete</button>
+  <!-- Hero Section -->
+  <section id="home" class="section home-section">
+    <div class="glow bg1"></div>
+    <div class="glow bg2"></div>
+    <div class="glow bg3"></div>
+    <div class="hero-content">
+      <div class="initials">JB</div>
+      <div class="hero-main">
+        <p class="role">Frontend Developer & UI/UX Enthusiast</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn solid">Projects</a>
+          <a href="#about" class="btn hollow">About</a>
+        </div>
+        <div class="scroll-hint" onclick="scrollToSection('about')">Scroll ↓</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Completion Animation -->
-  <div id="animation" class="completion-animation">🎉 Task Completed!</div>
-  <canvas id="confettiCanvas"></canvas>
+  <!-- About Me -->
+  <section id="about" class="section about-section">
+    <div class="container about-container">
+      <div class="about-left">
+        <h2>About Me:-</h2>
+        <p class="about-intro">I’m <strong>Jay Baid</strong>, a first-year undergraduate student at SST. I create web experiences that are minimal, functional, and aesthetically pleasing.</p>
+        <p>I specialize in frontend development, combining design sensibility with clean, maintainable code. I enjoy projects that challenge me to grow, while staying humble and continuously learning.</p>
 
-  <script src="script.js"></script>
+        <h3>Skills & Tools:-</h3>
+        <div class="skills">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>Git</span>
+        </div>
+
+        <blockquote class="motto">“Crafting elegant solutions with subtle sophistication.”</blockquote>
+
+        <div class="about-cta">
+          <a class="btn solid" href="#">Download CV</a>
+          <a class="btn hollow" href="#contact">Let’s Talk</a>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="img-wrapper">
+          <img src="Profile Picture.jpg" alt="Jay Baid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section projects-section">
+    <div class="container projects-container">
+      <h2>Projects:-</h2>
+      <div id="projectGrid" class="project-grid"></div>
+      <div class="proj-controls">
+        <button id="nextPage" class="page-btn">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact-section">
+    <div class="container contact-container">
+      <h2>Contact:-</h2>
+      <p class="contact-sub">Have a project or want to connect? Drop me a message.</p>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="row">
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <input id="email" name="email" type="email" placeholder="Your email" required>
+        </div>
+        <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn solid">Send</button>
+        </div>
+        <p id="formMsg" class="form-message" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section footer-section">
+    <div class="container">
+      <p>© 2025 Jay Baid. Crafted with care, code, and subtle elegance.</p>
+      <div class="social-links">
+        <a href="https://github.com/jay-0804" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/jay-baid-063067375" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</main>
+<script src="script.js"></script>
 </body>
 </html>
